@@ -1,5 +1,5 @@
 # Bootloader
-This repository holds some bootloader exercises/experiments based on (0xAX)[https://github.com/0xAX/linux-insides]. It is written in GNU assembly (AT&T syntax).
+This repository holds some bootloader exercises/experiments based on [0xAX](https://github.com/0xAX/linux-insides). It is written in GNU assembly (AT&T syntax).
 
 ## How to build
 ```
