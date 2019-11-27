@@ -1,5 +1,5 @@
 .code16
- .globl _start, start
+.globl _start, start
 
  start:
  _start:
