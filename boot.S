@@ -1,22 +1,33 @@
 .code16
-.globl boot
+ .globl _start, start
 
-boot:
-  mov $0x0e, %ah
-  mov $0, %bx
-  print:
-    mov message(%bx), %al
-    cmp $0, %al
-    je done
-    int $0x10
-    inc %bx
-    jmp print
-  done:
-    hlt
+ start:
+ _start:
+   push $real_mode_message
+   call print
+   addw $2, %sp
 
-message:
-  .ascii "Hello, World\0"
+   hlt
 
-.fill 510-(.-boot), 1, 0
-.byte 0x55
-.byte 0xaa
+ print:
+   push %bp
+   mov %sp, %bp
+   mov 4(%bp), %si
+   mov $0x0e, %ah
+   _print:
+     lodsb
+     cmp $0, %al
+     je _done
+     int $0x10
+     jmp _print
+   _done:
+     mov %bp, %sp
+     pop %bp
+     ret
+
+ real_mode_message:
+   .asciz "Entering 16 bits Real Mode"
+
+ .fill 510-(.-start), 1, 0
+ .byte 0x55
+ .byte 0xaa
