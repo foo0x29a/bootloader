@@ -12,3 +12,9 @@ Using qemu:
 ```
 $ qemu-system-i386 boot
 ```
+
+## How to debug
+Normally build but run using bochs:
+```
+$ bochs
+```
