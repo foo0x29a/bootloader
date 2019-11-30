@@ -3,7 +3,7 @@ This repository holds some bootloader exercises/experiments based on [0xAX](http
 
 ## How to build
 ```
-$ as boot.S -o boot.o
+$ as boot.s -o boot.o
 $ ld --oformat binary -T linker.ld boot.o -o boot 
 ```
 
